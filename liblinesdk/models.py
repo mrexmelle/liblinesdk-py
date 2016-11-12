@@ -11,3 +11,7 @@ class Profile:
 
     def get_large_picture_url(self):
         return self.picture_url + '/large'
+
+class FriendList:
+    count=0
+    contacts=[]
