@@ -1,5 +1,7 @@
 # coding: utf-8
 
+import json
+
 class Profile:
     mid=''
     display_name=''
@@ -11,6 +13,19 @@ class Profile:
         self.display_name=display_name
         self.picture_url=picture_url
         self.status_message=status_message
+    
+    @staticmethod
+    def from_dictionary(dict):
+        return Profile(
+            dict['mid'],
+            dict['displayName'],
+            dict['pictureUrl'],
+            dict['statusMessage'])
+    
+    @staticmethod
+    def from_string(string):
+        js=json.loads(string)
+        return Profile.from_dictionary(js)
 
     def get_small_picture_url(self):
         return self.picture_url + '/small'
